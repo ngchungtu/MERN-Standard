@@ -1,0 +1,11 @@
+.cart-content_container{
+    position: relative;
+}
+.cart-loading{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: #d6d6d6b0;
+}

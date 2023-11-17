@@ -1,0 +1,76 @@
+h3,
+h4,
+h5 {
+    margin: 0;
+    padding: 0;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f4f4f5;
+}
+
+.card_container {
+    display: flex;
+    flex-direction: row;
+    margin: 10px 0;
+    justify-content: space-between;
+    border-bottom: 1px solid #d4d4d8;
+    padding: 5px;
+}
+
+.card_container-img {
+    margin: 10px;
+}
+
+.card_container-img>img {
+    width: auto;
+    height: 60px;
+}
+
+.card_content {
+    width: 550px;
+    text-align: left;
+    margin: 0 20px;
+}
+
+.card_container-img>i {
+    cursor: pointer;
+}
+
+.card_item-product-quantity,
+.card_item-product-quantity-de-increment {
+    display: flex;
+    flex-direction: row;
+}
+
+.card_item-product-quantity {
+    width: 50%;
+    align-items: center;
+}
+
+.card_item-product-quantity-de-increment {
+    margin: 0 10px;
+}
+
+.card_item-product-quantity-de-increment>p {
+    margin: 0 5px;
+}
+
+.card_item-product-quantity-de-increment>input {
+    height: 25px;
+}
+
+.card_total {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.card_total>h5 {
+    font-weight: 500;
+    margin: 5px;
+}

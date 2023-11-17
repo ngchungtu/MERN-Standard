@@ -1,0 +1,43 @@
+.form-input,
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+.form-group>input{
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+    background-color: #d1d5db;
+}
+
+.form-group .text-warning{
+    color: red
+}
+
+.form-input-location{
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+.form-input-location>select{
+    border: none;
+    margin: 5px;
+    padding: 7px;
+    background-color: #d4d4d8;
+    border-radius: 4px;
+}
+.form-group-button-submit{
+    display: flex;
+    justify-content: center;
+}
+.form-group-button-submit > button{
+    margin-bottom:25px;
+    border: none;
+    background-color: #ea580c;
+    color: #fff;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}

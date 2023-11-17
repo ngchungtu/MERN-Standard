@@ -1,0 +1,123 @@
+.todo_container {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.todo_item {
+    background-color: #fee2e2;
+    width: 40%;
+    border-radius: 10px;
+}
+
+.todo_item .todo_item-sub-title {
+    display: flex;
+    justify-content: flex-start;
+    margin: 0 10px;
+    font-weight: bold;
+    color: #713f12;
+}
+
+.todo_title,
+.todo_desc {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: #cbd5e1;
+}
+
+.todo_item-action {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 10px 0 0;
+}
+
+.todo_item-action>button {
+    cursor: pointer;
+    margin: 5px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.todo_item-action>button:nth-child(1) {
+    background-color: #4c1d95;
+    color: #ddd6fe;
+}
+
+.todo_item-action>button:nth-child(2) {
+    background-color: #881337;
+    color: #fecdd3;
+}
+
+.form_add-new-todo,
+.form_update-todo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.form_add-new-todo>h3 {
+    color: #1e3a8a;
+}
+
+.form_add-new-todo>input:nth-child(2),
+.form_add-new-todo>input:nth-child(3),
+.form_update-todo>input:nth-child(2),
+.form_update-todo>input:nth-child(3) {
+    border: none;
+    padding: 10px;
+    margin: 5px;
+    background-color: rgb(228, 228, 228);
+    width: 30%;
+    border-radius: 5px;
+}
+
+.form_add-new-todo>button {
+    background-color: #1e3a8a;
+    padding: 10px;
+    border: none;
+    color: #60a5fa;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.form_update-todo>h3 {
+    color: #064e3b;
+}
+
+.form_update-todo .form_update-todo_button>button{
+    padding: 10px;
+    margin: 0 5px;
+    border: none;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.form_update-todo .form_update-todo_button>button:nth-child(1) {
+    background-color: #064e3b;
+    color: #6ee7b7;
+}
+
+.form_update-todo .form_update-todo_button>button:nth-child(2){
+    background-color: #164e63;
+    color: #a5f3fc;
+}
+
+.form_update-todo .form_update-todo_button{
+    display: flex;
+    flex-direction: row;
+}
+
+.button_logState {
+    border: none;
+    background-color: #78350f;
+    padding: 10px;
+    margin: 10px;
+    color: #fde68a;
+    font-weight: bold;
+    border-radius: 5px;
+}
