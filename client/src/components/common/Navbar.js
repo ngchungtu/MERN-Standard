@@ -28,7 +28,7 @@ const Navbar = () => {
         <>
             <div className={offset > 0 ? 'navbar_container navbar_container-sticky' : 'navbar_container'}>
                 <div className='navbar_logo'>
-                    <h2>MERN Standard</h2>
+                    <a href='/'>MERN Standard</a>
                 </div>
                 <div className='navbar_item'>
                     <ul>

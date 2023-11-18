@@ -6,7 +6,7 @@
     background-color: #e0e7ff;
 }
 
-.navbar_container-sticky{
+.navbar_container-sticky {
     position: fixed;
 }
 
@@ -14,9 +14,12 @@
     margin: 10px 5px;
 }
 
-.navbar_container .navbar_logo>h2 {
+.navbar_container .navbar_logo>a {
     margin: 0 10px;
     color: #0f766e;
+    text-decoration: auto;
+    font-size: 20px;
+    font-weight: 700;
 }
 
 .navbar_item {
@@ -47,7 +50,7 @@
     border-radius: 3px;
 }
 
-.nav_item-card{
+.nav_item-card {
     cursor: pointer;
 }
 
@@ -61,7 +64,8 @@
     font-size: 13px;
     font-weight: 400;
 }
-.tooltip{
+
+.tooltip {
     display: flex;
     justify-content: flex-end;
     position: relative;

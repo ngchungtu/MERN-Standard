@@ -23,6 +23,7 @@ const Cart = ({ product }) => {
                 <h5>Rating: {product.rating.rate} ✰</h5>
             </div>
             <div className='cart_container-button'>
+                <a href={`/san-pham/${product.id}`}>Xem</a>
                 <button onClick={() => handleAddProductToCart(product)}>Thêm vào giỏ hàng</button>
             </div>
         </div>
