@@ -19,13 +19,12 @@
     border-bottom: 1px solid #9ca3af;
     margin: 0px 0px 10px 0;
     padding: 0px 0 5px 0;
-    justify-content: space-between;
-    /* width: 100%; */
 }
 
 .tooltip_item-img{
     display: flex;
     flex-direction: column;
+    width: 45px;
 }
 
 .tooltip_item-img,
@@ -81,6 +80,16 @@
 .tooltip_item-detail>h5 {
     margin: 0;
     padding: 0;
+}
+.tooltip_item-detail>:nth-child(1)>span{
+    font-weight: 500;
+}
+.tooltip_item-detail>:nth-child(2){
+    font-weight: 500;
+}
+.tooltip_item-detail>:nth-child(3){
+    color: #6b7280;
+    font-weight: normal;
 }
 
 .tooltip_container-total {

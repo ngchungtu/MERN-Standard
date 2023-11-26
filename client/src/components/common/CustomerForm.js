@@ -5,13 +5,13 @@ import moment from 'moment/moment';
 import { isEmptyOrNil } from '../../common';
 
 export const EnumTypeGender = {
-    male: 'Nam',
-    female: 'Nữ',
-    other: 'Khác',
+    male: 'Anh',
+    female: 'Chị',
 }
 
 const CustomerForm = ({ cardToCheckOut, handleLoading }) => {
 
+    /* #region  state */
     const [name, setNameChange] = useState('')
     // const [email, setEmailChange] = useState('')
     const [phone, setPhoneChange] = useState('')
@@ -26,7 +26,9 @@ const CustomerForm = ({ cardToCheckOut, handleLoading }) => {
     const [wardid, setWardId] = useState('');
     const [selectProvince, setSelectProvince] = useState('');
     const [selectDistrict, setSelectDistrict] = useState('');
+    const [address, setAddress] = useState('');
     const getTimeNow = moment(new Date()).format('DD/MM/YYYY, h:mm:ss a')
+    /* #endregion */
 
     /* #region: Province */
     useEffect(() => {
@@ -138,7 +140,7 @@ const CustomerForm = ({ cardToCheckOut, handleLoading }) => {
         // console.log('full address', fullAddress);
         // console.log({ name, phone, gender, selectProvince: nameProvice.name, selectDistrict: nameDistrict.name, selectWard: nameWard.name, time:getTimeNow })
 
-        const empData = { name, phone, gender, selectProvince: nameProvice.name, selectDistrict: nameDistrict.name, selectWard: nameWard.name, time: getTimeNow, card: cardToCheckOut }
+        const empData = { name, phone, gender, selectProvince: nameProvice.name, selectDistrict: nameDistrict.name, selectWard: nameWard.name, address, time: getTimeNow, card: cardToCheckOut }
 
         if (!isEmptyOrNil(empData)) {
             handleLoading(true)
@@ -155,88 +157,89 @@ const CustomerForm = ({ cardToCheckOut, handleLoading }) => {
     }
 
     return (
-        <div className="container">
+        <div className="container-customer-form">
             <form className="form_container" onSubmit={handleSubmit}>
-                <div className="card" style={{ textAlign: 'left' }}>
+                <div className="card">
                     <div className="card-title">
                         <h2>Thông tin khách hàng</h2>
                     </div>
                     <div className="card-body">
-                        <div className="col-lg-12">
-                            <div className="form-input">
+                        <div className="form-check-gender">
+                            <div onChange={handleChangeGender}>
+                                <input readOnly type="radio" value={EnumTypeGender.male} name="gender" checked={gender === EnumTypeGender.male} /> Anh
+                                <input readOnly type="radio" value={EnumTypeGender.female} name="gender" checked={gender === EnumTypeGender.female} /> Chị
+                            </div>
+                        </div>
 
-                                <div className="form-group">
-                                    <label>Tên</label>
-                                    <input value={name} onMouseDown={e => setValidationChange(true)} onChange={e => setNameChange(e.target.value)} className="form-control" />
-                                    {name.length === 0 && validation && <span className='text-warning'>Vui lòng nhập tên...</span>}
-                                </div>
+                        <div className="form-input">
 
-                                {/* <div className="form-group">
+                            <div className="form-group">
+                                <input value={name} onMouseDown={e => setValidationChange(true)} onChange={e => setNameChange(e.target.value)} className="form-control" placeholder='Họ và Tên' />
+                                {name.length === 0 && validation && <span className='text-warning'>Vui lòng nhập Họ và tên</span>}
+                            </div>
+
+                            {/* <div className="form-group">
                                     <label>Email</label>
                                     <input value={email} onChange={e => setEmailChange(e.target.value)} className="form-control" />
                                 </div> */}
 
-                                <div className="form-group">
-                                    <label>Số điện thoại</label>
-                                    <input maxLength={10} value={phone} onChange={e => setPhoneChange(e.target.value)} className="form-control" />
-                                </div>
+                            <div className="form-group">
+                                <input maxLength={10} value={phone} onChange={e => setPhoneChange(e.target.value)} className="form-control" placeholder='Số điện thoại' />
+                                {phone.length === 0 && validation && <span className='text-warning'>Vui lòng nhập Số điện thoại</span>}
                             </div>
+                        </div>
 
-                            {/* <div className="form-check-status">
+                        {/* <div className="form-check-status">
                                 <input checked={active} onChange={e => setActiveChange(e.target.checked)} type='checkbox' className='form-check-input' />
                                 <label className="form-check-label">Is Active</label>
                             </div> */}
 
-                            <div className="form-check-gender">
-                                <div onChange={handleChangeGender}>
-                                    <input readOnly type="radio" value={EnumTypeGender.male} name="gender" checked={gender === EnumTypeGender.male} /> Nam
-                                    <input readOnly type="radio" value={EnumTypeGender.female} name="gender" checked={gender === EnumTypeGender.female} /> Nữ
-                                    <input readOnly type="radio" value={EnumTypeGender.other} name="gender" checked={gender === EnumTypeGender.other} /> Khác
+
+                        <div>
+                            <h3>Chọn thông tin địa chỉ</h3>
+                            <div className="form-input-location">
+                                <select name="country" className="form-control p-2" onChange={(e) => handlecountry(e)}>
+                                    <option value="">Tỉnh thành</option>
+                                    {
+                                        provinceList.map((i) => (
+                                            <option key={i.code} value={i.code}>{i.name}</option>
+                                        ))
+                                    }
+                                </select>
+
+
+                                <select name="district" className="form-control p-2" onChange={(e) => handleDistrict(e)} >
+                                    <option value="">Chọn Quận / Huyện</option>
+                                    {
+                                        districtList.map((i) => (
+                                            <option key={i.code} value={i.code}>{i.name} </option>
+                                        ))
+                                    }
+                                </select>
+
+                                <select name="ward" className="form-control p-2" onChange={(e) => handleWard(e)}>
+                                    <option value="">Chọn Phường / Xã</option>
+                                    {
+                                        wardList.map((i) => (
+                                            <option key={i.code} value={i.code}>{i.name} </option>
+                                        ))
+                                    }
+                                </select>
+
+                                <div className="form-group_address">
+                                    <input value={address} onChange={e => setAddress(e.target.value)} className="form-control" placeholder='Số nhà, tên đường' />
                                 </div>
+
                             </div>
+                        </div>
 
-
-                            <div>
-                                <h3>Chọn thông tin địa chỉ</h3>
-                                <div className="form-input-location">
-                                    <select name="country" className="form-control p-2" onChange={(e) => handlecountry(e)}>
-                                        <option value="">--Chọn tỉnh thành--</option>
-                                        {
-                                            provinceList.map((i) => (
-                                                <option key={i.code} value={i.code}>{i.name}</option>
-                                            ))
-                                        }
-                                    </select>
-
-
-                                    <select name="district" className="form-control p-2" onChange={(e) => handleDistrict(e)} >
-                                        <option value="">--Chọn quận huyện--</option>
-                                        {
-                                            districtList.map((i) => (
-                                                <option key={i.code} value={i.code}>{i.name} </option>
-                                            ))
-                                        }
-                                    </select>
-
-                                    <select name="ward" className="form-control p-2" onChange={(e) => handleWard(e)}>
-                                        <option value="">--Chọn phường xã--</option>
-                                        {
-                                            wardList.map((i) => (
-                                                <option key={i.code} value={i.code}>{i.name} </option>
-                                            ))
-                                        }
-                                    </select>
-
-                                </div>
-                            </div>
-
-                            <div className="form-group-button-submit">
-                                <button type="submit" className="btn btn-success">Đặt hàng</button>
-                            </div>
+                        <div className="form-group-button-submit">
+                            <button type="submit" className="btn btn-success">Đặt hàng</button>
                         </div>
                     </div>
                 </div>
             </form>
+
         </div>
     )
 }

@@ -49,9 +49,9 @@ const Tooltip = ({ productInState }) => {
                                             <i className="ri-close-circle-line" onClick={() => removeItem(product)}></i>
                                         </div>
                                         <div className='tooltip_item-detail'>
-                                            <h4 className='tooltip_item-title'>{product.title}</h4>
-                                            <h5 className='tooltip_item-price'>{product.price}</h5>
-                                            <h5 className='tooltip_item-category'>{product.category}</h5>
+                                            <h4 className='tooltip_item-title'><span>Tên sản phẩm: </span>{product.title}</h4>
+                                            <h5 className='tooltip_item-price'>Giá: {product.price}</h5>
+                                            <h5 className='tooltip_item-category'>Cate: {product.category}</h5>
                                         </div>
                                     </div>
                                 ))
