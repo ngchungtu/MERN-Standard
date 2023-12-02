@@ -1,12 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getLocalStorage, isEmptyOrNil } from "../common";
+import { clearLocalStorage, getLocalStorage, isEmptyOrNil, setLocalStorage } from "../common";
 import * as L_type from '../common/type'
 
 const initialState = {
-    productList: [],
     cartItems: [],
     totalQuantity: 0,
     totalPrice: 0,
+    cartSuccess: [],
 }
 
 export const productSlice = createSlice({
@@ -116,6 +116,21 @@ export const productSlice = createSlice({
             if (!isEmptyOrNil(data)) {
                 state.cartItems = data
             }
+        },
+
+        setOrderSuccess: (state, action) => {
+            const cartOrder = action.payload
+            if (!isEmptyOrNil(cartOrder)) {
+                setLocalStorage(L_type.typeLocalStorage.orderInfo, cartOrder)
+            }
+        },
+
+        getOrderSuccess: (state, action) => {
+            state.cartSuccess = getLocalStorage(L_type.typeLocalStorage.orderInfo)
+        },
+
+        clearStorage: (state, action) => {
+            clearLocalStorage()
         }
     }
 })
@@ -123,5 +138,5 @@ export const productSlice = createSlice({
 export const { addProductToCart, getcartTotal,
     incrementQuantity, decrementQuantity,
     deleteProductInCart, getAllProduct,
-    checkoutCard } = productSlice.actions
+    checkoutCard, setOrderSuccess, getOrderSuccess, clearStorage } = productSlice.actions
 export default productSlice.reducer;

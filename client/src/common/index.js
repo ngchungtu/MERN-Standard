@@ -22,3 +22,7 @@ export const setLocalStorage = (type, value) => {
 export const getLocalStorage = (value) => {
     return JSON.parse(localStorage.getItem(value))
 }
+
+export const clearLocalStorage = () => {
+    return localStorage.clear()
+}

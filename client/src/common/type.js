@@ -1,3 +1,4 @@
 export const typeLocalStorage = {
-    productInCart: 'productInCart'
+    productInCart: 'productInCart',
+    orderInfo: 'orderInfo',
 }

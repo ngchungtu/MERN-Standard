@@ -29,7 +29,7 @@ const Product = () => {
                 {
                     products.map((product) => (
                         <div key={product.id}>
-                            <Cart product={product}/>
+                            <Cart product={product} />
                         </div>
                     ))
                 }

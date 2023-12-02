@@ -8,6 +8,7 @@
 
 .navbar_container-sticky {
     position: fixed;
+    z-index: 1;
 }
 
 .navbar_logo {
@@ -70,4 +71,5 @@
     justify-content: flex-end;
     position: relative;
     left: 50px;
+    z-index: 1;
 }

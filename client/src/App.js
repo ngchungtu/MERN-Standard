@@ -11,6 +11,7 @@ import { useEffect } from 'react';
 import { isEmptyOrNil } from './common';
 import { checkoutCard } from './reducers/product';
 import OrderComponent from './components/OrderComponent';
+import OrderSuccess from './components/OrderSuccess'
 
 function App() {
 
@@ -33,6 +34,7 @@ function App() {
       <Route index element={<Product />}></Route>
       <Route path="/san-pham/:id" element={<CartDetail />}></Route>
       <Route path="/thanh-toan" element={<OrderComponent />}></Route>
+      <Route path="/OrderSuccess" element={<OrderSuccess />}></Route>
       <Route path="/todo" element={<Todo />}></Route>
       <Route path="/checklocation" element={<GetLatLngLocation />}></Route>
     </Route>
